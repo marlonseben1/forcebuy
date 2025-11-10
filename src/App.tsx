@@ -1,4 +1,4 @@
-import { TabelaPrincipal } from "./components/tabelaPrincipal/tabelaPrincipal";
+import { TabelaPrincipal } from "./containers/tabelaPrincipal/tabelaPrincipal";
 
 function App() {
   return (
