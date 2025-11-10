@@ -1,5 +1,11 @@
+import { MainTable } from "./components/mainTable/mainTable";
+
 function App() {
-  return <div>Primeiro commit do projeto!</div>;
+  return (
+    <>
+      <MainTable />
+    </>
+  );
 }
 
 export default App;
