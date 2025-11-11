@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 import type { BotaoLancamentoProps } from "./botaoLancamento.types";
 
-export const BotaoLancamento = ({ tipo }: BotaoLancamentoProps) => {
+export const BotaoLancamento = ({ tipo, onClick }: BotaoLancamentoProps) => {
   const icone =
     tipo === "receita" ? (
       <FaLongArrowAltUp size={18} />
@@ -18,6 +18,7 @@ export const BotaoLancamento = ({ tipo }: BotaoLancamentoProps) => {
         fontSize: "16px",
         fontWeight: "bold",
       }}
+      onClick={onClick}
     >
       {tipo === "receita" ? "Lançar Receita" : "Lançar despesa"}
       {icone}
