@@ -1,8 +1,8 @@
 import { Typography, Paper, Box, Grid, IconButton } from "@mui/material";
 import { MdOutlineDehaze } from "react-icons/md";
-import { BotaoLancamento } from "../../components/botaoLancamento/botaoLancamento";
+import { BotaoLancamento } from "../../components/buttons/botaoLancamento/botaoLancamento";
 import { useState } from "react";
-import { DialogLancamento } from "../../components/dialogLancamento/dialogLancamento";
+import { DialogLancamento } from "../../components/dialogs/dialogLancamento/dialogLancamento";
 
 interface DataItem {
   id: number;
