@@ -10,6 +10,7 @@ const InputFornecedor = () => {
       required
       variant="outlined"
       fullWidth
+      margin="normal"
       placeholder="Digite para buscar ou clique + para cadastrar"
       slotProps={{
         select: {

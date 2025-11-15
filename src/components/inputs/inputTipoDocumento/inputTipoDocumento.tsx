@@ -7,6 +7,8 @@ const InputTipoDocumento = () => {
       select
       defaultValue={tiposDocumento[0]?.value}
       label="Tipo de documento"
+      fullWidth
+      margin="normal"
     >
       {tiposDocumento.map((documento) => (
         <MenuItem key={documento?.value} value={documento.value}>
