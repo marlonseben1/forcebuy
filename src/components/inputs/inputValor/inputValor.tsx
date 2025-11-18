@@ -9,7 +9,6 @@ const InputValor = () => {
     <TextField
       required
       label="Valor"
-      margin="normal"
       variant="outlined"
       value={maskValor.format(valor)}
       error={typeof valor === "number" && valor <= 0}
