@@ -17,6 +17,9 @@ import { BotaoLancamento } from "../../components/buttons/botaoLancamento/botaoL
 import { useState } from "react";
 import { DialogLancamento } from "../../components/dialogs/dialogLancamento/dialogLancamento";
 import { dadosTeste } from "./tabelaPrincipalMockData";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { colorPalette } from "../../theme";
+import { FaDownload } from "react-icons/fa";
 
 export const TabelaPrincipal = () => {
   const [openDialogLancamento, setOpenDialogLancamento] = useState(false);
@@ -123,7 +126,10 @@ export const TabelaPrincipal = () => {
                 </TableCell>
                 <TableCell align="left">
                   <IconButton onClick={handleAbrirPopoverAcoes}>
-                    <MdOutlineDehaze size={22} color="black" />
+                    <MdOutlineDehaze
+                      size={22}
+                      color={colorPalette.neutral[900]}
+                    />
                   </IconButton>
                   <Popover
                     id={id}
@@ -145,11 +151,41 @@ export const TabelaPrincipal = () => {
                     }}
                   >
                     <Button>
-                      <Typography color="black">Visualizar</Typography>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: ".5rem",
+                        }}
+                      >
+                        <FaMagnifyingGlass color={colorPalette.neutral[500]} />
+                        <Typography
+                          color={colorPalette.neutral[500]}
+                          textTransform={"none"}
+                        >
+                          Visualizar
+                        </Typography>
+                      </div>
                     </Button>
                     <Divider />
                     <Button>
-                      <Typography color="black">Baixar</Typography>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: ".5rem",
+                        }}
+                      >
+                        <FaDownload color={colorPalette.neutral[500]} />
+                        <Typography
+                          color={colorPalette.neutral[500]}
+                          textTransform={"none"}
+                        >
+                          Baixar
+                        </Typography>
+                      </div>
                     </Button>
                   </Popover>
                 </TableCell>

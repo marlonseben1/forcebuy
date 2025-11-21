@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 import type { BotaoLancamentoProps } from "./botaoLancamento.types";
+import { colorPalette } from "../../../theme";
 
 export const BotaoLancamento = ({ tipo, onClick }: BotaoLancamentoProps) => {
   const icone =
@@ -13,8 +14,8 @@ export const BotaoLancamento = ({ tipo, onClick }: BotaoLancamentoProps) => {
   return (
     <Button
       sx={{
-        backgroundColor: "#784BFF",
-        color: "#FFFFFF",
+        backgroundColor: colorPalette.purple[100],
+        color: colorPalette.neutral[0],
         fontSize: "16px",
         fontWeight: "bold",
       }}
