@@ -2,6 +2,7 @@ import {
   Button,
   Divider,
   IconButton,
+  Paper,
   Popover,
   Table,
   TableBody,
@@ -16,9 +17,20 @@ import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { colorPalette } from "../../theme";
 import { FaEdit } from "react-icons/fa";
 import { useState } from "react";
+import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
+import DialogContas from "../../components/dialogs/dialogContas/dialogContas";
 
 const Contas = () => {
+  const [openContasDialog, setOpenContasDialog] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
+  const handleAbrirContasDialog = () => {
+    setOpenContasDialog(true);
+  };
+
+  const handleFecharContasDialog = () => {
+    setOpenContasDialog(false);
+  };
 
   const handleAbrirPopoverAcoes = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -35,9 +47,11 @@ const Contas = () => {
 
   return (
     <>
-      <Button>Transferência</Button>
-      <Button>Nova conta</Button>
-      <TableContainer>
+      <BotaoCadastro
+        onClick={handleAbrirContasDialog}
+        tipo="conta"
+      ></BotaoCadastro>
+      <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="dense table">
           <TableHead>
             <TableRow>
@@ -146,6 +160,10 @@ const Contas = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <DialogContas
+        open={openContasDialog}
+        onClose={handleFecharContasDialog}
+      />
     </>
   );
 };
