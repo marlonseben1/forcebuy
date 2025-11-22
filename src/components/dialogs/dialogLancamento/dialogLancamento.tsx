@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogTitle,
   Grid,
+  IconButton,
 } from "@mui/material";
 import type { DialogLancamentoProps } from "./dialogLancamento.types";
 import InputCategoria from "../../inputs/inputCategoria/inputCategoria";
@@ -19,6 +20,8 @@ import InputValor from "../../inputs/inputValor/inputValor";
 import BotaoOpcoesAdicionais from "../../buttons/botaoOpcoesAdicionais/botaoOpcoesAdicionais";
 import DialogOpcoesAdicionais from "../dialogOpcoesAdicionais/dialogOpcoesAdicionais";
 import { useState } from "react";
+import { IoClose } from "react-icons/io5";
+import { colorPalette } from "../../../theme";
 
 export const DialogLancamento = (props: DialogLancamentoProps) => {
   const [openOpcoesAdicionais, setOpenOpcoesAdicionais] = useState(false);
@@ -34,7 +37,19 @@ export const DialogLancamento = (props: DialogLancamentoProps) => {
   return (
     <>
       <Dialog open={props.open}>
-        <DialogTitle>{`Nova ${props.tipo}`}</DialogTitle>
+        <DialogTitle fontSize={"1.5rem"}>{`Nova ${props.tipo}`}</DialogTitle>
+        <IconButton
+          aria-label="close"
+          sx={{
+            position: "absolute",
+            right: 12,
+            top: 12,
+          }}
+          onClick={props.onClose}
+        >
+          <IoClose size={"25px"} color={colorPalette.neutral[400]} />
+        </IconButton>
+
         <DialogContent>
           <Box component="form">
             <Grid container spacing={3}>
@@ -83,7 +98,8 @@ export const DialogLancamento = (props: DialogLancamentoProps) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.onClose}>Fechar modal</Button>
+          <Button onClick={props.onClose}>Cancelar</Button>
+          <Button onClick={props.onClose}>Salvar</Button>
         </DialogActions>
       </Dialog>
       <DialogOpcoesAdicionais
