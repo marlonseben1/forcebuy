@@ -56,9 +56,6 @@ const Contas = () => {
           <TableHead>
             <TableRow>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Nome da conta</Typography>
-              </TableCell>
-              <TableCell align="left">
                 <Typography fontWeight={"bold"}>Tipo de conta</Typography>
               </TableCell>
               <TableCell align="left">
@@ -78,9 +75,6 @@ const Contas = () => {
                 key={c.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="left">
-                  <Typography>{c.nomeConta}</Typography>
-                </TableCell>
                 <TableCell align="left">
                   <Typography>{c.tipoConta}</Typography>
                 </TableCell>
