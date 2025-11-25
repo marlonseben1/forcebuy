@@ -9,7 +9,7 @@ export type TBanco =
 
 export interface ContasDataItem {
     id: number;
-    tipoConta: 'Poupanca' | 'Corrente';
+    tipoConta: 'poupanca' | 'corrente';
     banco: TBanco;
     saldo: number;
 }
