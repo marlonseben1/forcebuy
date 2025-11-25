@@ -1,9 +1,6 @@
 import {
-  Button,
-  Divider,
   IconButton,
   Paper,
-  Popover,
   Table,
   TableBody,
   TableCell,
@@ -19,6 +16,7 @@ import { FaEdit } from "react-icons/fa";
 import { useState } from "react";
 import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
 import DialogCategorias from "../../components/dialogs/dialogCategorias/dialogCategorias";
+import PopoverAcoes from "../../components/popoverAcoes/popoverAcoes";
 
 const Categorias = () => {
   const [openCategoriasDialog, setOpenCategoriasDialog] = useState(false);
@@ -94,63 +92,26 @@ const Categorias = () => {
                       color={colorPalette.neutral[900]}
                     />
                   </IconButton>
-                  <Popover
+                  <PopoverAcoes
                     id={id}
                     open={open}
                     anchorEl={anchorEl}
-                    onClose={handleFecharPopoverAcoes}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "center",
-                    }}
-                    slotProps={{
-                      paper: {
-                        elevation: 1,
+                    handleFecharPopoverAcoes={handleFecharPopoverAcoes}
+                    actions={[
+                      {
+                        label: "Editar",
+                        icon: <FaEdit color={colorPalette.neutral[500]} />,
+                        onClick: () =>
+                          console.log("Implementar posteriormente"),
                       },
-                    }}
-                  >
-                    <Button>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: ".5rem",
-                        }}
-                      >
-                        <FaEdit color={colorPalette.neutral[500]} />
-                        <Typography
-                          color={colorPalette.neutral[500]}
-                          textTransform={"none"}
-                        >
-                          Editar
-                        </Typography>
-                      </div>
-                    </Button>
-                    <Divider />
-                    <Button>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: ".5rem",
-                        }}
-                      >
-                        <MdDelete color={colorPalette.neutral[500]} />
-                        <Typography
-                          color={colorPalette.neutral[500]}
-                          textTransform={"none"}
-                        >
-                          Excluir
-                        </Typography>
-                      </div>
-                    </Button>
-                  </Popover>
+                      {
+                        label: "Excluir",
+                        icon: <MdDelete color={colorPalette.neutral[500]} />,
+                        onClick: () =>
+                          console.log("Implementar posteriormente"),
+                      },
+                    ]}
+                  ></PopoverAcoes>
                 </TableCell>
               </TableRow>
             ))}
