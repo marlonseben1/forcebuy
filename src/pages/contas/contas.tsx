@@ -1,9 +1,6 @@
 import {
-  Button,
-  Divider,
   IconButton,
   Paper,
-  Popover,
   Table,
   TableBody,
   TableCell,
@@ -15,10 +12,11 @@ import {
 import { ContasMockData } from "./contasMockData";
 import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { colorPalette } from "../../theme";
-import { FaEdit } from "react-icons/fa";
 import { useState } from "react";
 import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
 import DialogContas from "../../components/dialogs/dialogContas/dialogContas";
+import PopoverAcoes from "../../components/popoverAcoes/popoverAcoes";
+import { FaEdit } from "react-icons/fa";
 
 const Contas = () => {
   const [openContasDialog, setOpenContasDialog] = useState(false);
@@ -76,7 +74,9 @@ const Contas = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">
-                  <Typography>{c.tipoConta}</Typography>
+                  <Typography>
+                    {c.tipoConta === "corrente" ? "Corrente" : "Poupança"}
+                  </Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography>{c.banco}</Typography>
@@ -91,63 +91,26 @@ const Contas = () => {
                       color={colorPalette.neutral[900]}
                     />
                   </IconButton>
-                  <Popover
+                  <PopoverAcoes
                     id={id}
                     open={open}
                     anchorEl={anchorEl}
-                    onClose={handleFecharPopoverAcoes}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "center",
-                    }}
-                    slotProps={{
-                      paper: {
-                        elevation: 1,
+                    handleFecharPopoverAcoes={handleFecharPopoverAcoes}
+                    actions={[
+                      {
+                        label: "Editar",
+                        icon: <FaEdit color={colorPalette.neutral[500]} />,
+                        onClick: () =>
+                          console.log("Implementar posteriormente"),
                       },
-                    }}
-                  >
-                    <Button>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: ".5rem",
-                        }}
-                      >
-                        <FaEdit color={colorPalette.neutral[500]} />
-                        <Typography
-                          color={colorPalette.neutral[500]}
-                          textTransform={"none"}
-                        >
-                          Editar
-                        </Typography>
-                      </div>
-                    </Button>
-                    <Divider />
-                    <Button>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: ".5rem",
-                        }}
-                      >
-                        <MdDelete color={colorPalette.neutral[500]} />
-                        <Typography
-                          color={colorPalette.neutral[500]}
-                          textTransform={"none"}
-                        >
-                          Excluir
-                        </Typography>
-                      </div>
-                    </Button>
-                  </Popover>
+                      {
+                        label: "Excluir",
+                        icon: <MdDelete color={colorPalette.neutral[500]} />,
+                        onClick: () =>
+                          console.log("Implementar posteriormente"),
+                      },
+                    ]}
+                  />
                 </TableCell>
               </TableRow>
             ))}
